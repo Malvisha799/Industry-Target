@@ -1,280 +1,910 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-  const modal = document.getElementById("serviceModal");
+// Service details content
+const serviceDetails = {
+  "business-setup": {
+    title: "Business Setup",
+    icon: "business-setup-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+      <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+    `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+    `,
+    services: `
+     <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="service-box">
+        <div class="service-text">
+        <div class="service-content">
+          <h4>Registration Package</h4>
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" alt="Registration Package">
+        </div>
+        </div>
+      </div>
+      <div class="service-box">
+        <div class="service-text">
+        <div class="service-content">
+          <h4>Compliance Setup</h4>
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+           <li>Legal compliance review</li>
+           <li>Industry-specific regulations</li>
+           <li>Documentation preparation</li>
+           <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" alt="Registration Package">
+        </div>
+        </div>
+      </div>
+     
+      <div class="service-box">
+        <div class="service-text">
+        <div class="service-content">
+          <h4>Advisory Services</h4>
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80" alt="Registration Package">
+        </div>
+        </div>
+      </div>
+     
+      
+    `,
+  },
+  "business-growth": {
+    title: "Business Growth",
+    icon: "business-growth-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+        `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+    <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+            <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  performance: {
+    title: "Performance Analysis",
+    icon: "performance-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+      `,
+    keyFeatures: `
+     <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+    <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+            <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  protection: {
+    title: "Business Protection",
+    icon: "protection-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+       <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+      `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+    <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+           <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  nearby: {
+    title: "Affordable Nearby Solution",
+    icon: "nearby-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+      `,
+    keyFeatures: `
+     <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+    <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+            <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  it: {
+    title: "Modern IT Infrastructure",
+    icon: "it-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+      `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+    <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+           <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  marketing: {
+    title: "Digital Marketing",
+    icon: "marketing-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+       <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+        `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+     <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+  support: {
+    title: "Expert Support",
+    icon: "support-icon",
+    overview: `
+      <div class="overview-box"> 
+        <h3>Overview</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="benefit-box">
+        <h4>Benefits</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Quick and hassle-free setup process</li>
+            <li>Expert guidance at every step</li>
+            <li>Compliance with all legal requirements</li>
+            <li>Ongoing support and consultation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="benefit-box">
+        <h4>Process</h4>
+        <div class="benefit-content">
+          <p class="benefit-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="benefit-list">
+            <li>Initial Consultation</li>
+            <li>Documentation Preparation</li>
+            <li>Registration Process</li>
+            <li>Compliance Setup</li>
+          </ul>
+        </div>
+      </div>
+       `,
+    keyFeatures: `
+      <div class="keyFeatures-box"> 
+        <h3>Key Features</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="process-list">
+        <div class="process-item">
+          <span class="process-number">01</span>
+          <h4>Initial Consultation</h4>
+          <p>Free consultation to understand your business needs and goals</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">02</span>
+          <h4>Documentation</h4>
+          <p>Prepare and review all necessary legal documents</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">03</span>
+          <h4>Registration</h4>
+          <p>Complete business registration with relevant authorities</p>
+        </div>
+        <div class="process-item">
+          <span class="process-number">04</span>
+          <h4>Setup & Launch</h4>
+          <p>Finalize all requirements and launch your business</p>
+        </div>
+      </div>
+        `,
+    services: `
+      <div class="servies-box"> 
+        <h3>Our Services</h3>
+        <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
+      </div>
+      <div class="service-box">
+        <h4>Registration Package</h4>
+        <div class="service-content">
+          <p class="service-description">Complete business registration with all necessary documentation and legal requirements.</p>
+          <ul class="service-list">
+            <li>Company name reservation</li>
+            <li>Business structure setup</li>
+            <li>Registration with authorities</li>
+            <li>Tax identification setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Compliance Setup</h4>
+        <div class="service-content">
+          <p class="service-description">Ensure your business meets all regulatory requirements and industry standards.</p>
+          <ul class="service-list">
+            <li>Legal compliance review</li>
+            <li>Industry-specific regulations</li>
+            <li>Documentation preparation</li>
+            <li>Compliance monitoring setup</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-box">
+        <h4>Advisory Services</h4>
+        <div class="service-content">
+          <p class="service-description">Expert guidance on business structure, taxation, and legal matters.</p>
+          <ul class="service-list">
+            <li>Business structure consultation</li>
+            <li>Tax planning strategies</li>
+            <li>Legal framework setup</li>
+            <li>Growth planning assistance</li>
+          </ul>
+        </div>
+      </div>
+        `,
+  },
+};
+
+function openModal(service) {
+  const serviceData = serviceDetails[service];
   const modalTitle = document.getElementById("modalTitle");
   const modalBody = document.getElementById("modalBody");
   const modalIcon = document.getElementById("modalIcon");
+  const modal = document.getElementById("serviceModal");
+
+  modalTitle.textContent = serviceData.title;
+  modalIcon.className = `icon ${serviceData.icon}`;
+
+  modalBody.innerHTML = `
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="keyFeatures">Key Features</button>
+      <button class="tab" data-tab="services">Services</button>
+    </div>
+    <div class="tab-content active" id="overview"> 
+      ${serviceData.overview}
+    </div>
+    <div class="tab-content" id="keyFeatures">
+      <div class="features-grid">
+        ${serviceData.keyFeatures}
+      </div>
+    </div>
+    <div class="tab-content" id="services">
+      <div class="services-container">
+        ${serviceData.services}
+      </div>
+    </div>
+  `;
+
+  const tabs = modalBody.querySelectorAll(".tab");
+  const tabContents = modalBody.querySelectorAll(".tab-content");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tabContents.forEach((c) => c.classList.remove("active"));
+      tab.classList.add("active");
+      const tabId = tab.dataset.tab;
+      document.getElementById(tabId).classList.add("active");
+    });
+  });
+
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card");
+  const modal = document.getElementById("serviceModal");
   const closeModal = document.querySelector(".close-modal");
 
-  // Service details content
-  const serviceDetails = {
-    "business-setup": {
-      title: "Business Setup",
-      icon: "business-setup-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Our comprehensive business setup service streamlines the entire process of establishing your company. We handle all aspects of business registration, ensuring a smooth and efficient launch for your enterprise.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Complete company registration assistance</li>
-                  <li>Legal documentation and compliance support</li>
-                  <li>Business license acquisition</li>
-                  <li>Tax registration and planning</li>
-                  <li>Bank account setup assistance</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Registration Package</h4>
-                  <p>Complete business registration with all necessary documentation and legal requirements.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Compliance Setup</h4>
-                  <p>Ensure your business meets all regulatory requirements and industry standards.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Advisory Services</h4>
-                  <p>Expert guidance on business structure, taxation, and legal matters.</p>
-              </div>
-          `,
-    },
-    "business-growth": {
-      title: "Business Growth",
-      icon: "business-growth-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Our business growth solutions are designed to help you scale your operations effectively and sustainably. We provide comprehensive strategies for market expansion and revenue growth.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Market analysis and expansion planning</li>
-                  <li>Revenue growth strategies</li>
-                  <li>Operational efficiency optimization</li>
-                  <li>Performance metrics tracking</li>
-                  <li>Scalability assessment</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Growth Strategy</h4>
-                  <p>Customized growth plans aligned with your business objectives.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Market Expansion</h4>
-                  <p>Support for entering new markets and expanding your customer base.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Operations Scaling</h4>
-                  <p>Guidance on scaling operations while maintaining efficiency.</p>
-              </div>
-          `,
-    },
-    performance: {
-      title: "Performance Analysis",
-      icon: "performance-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Track and optimize your business performance with our comprehensive analysis tools and expert insights.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Real-time performance monitoring</li>
-                  <li>Data-driven insights</li>
-                  <li>Custom KPI tracking</li>
-                  <li>Performance optimization recommendations</li>
-                  <li>Regular performance reports</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Performance Monitoring</h4>
-                  <p>Continuous tracking of key business metrics and performance indicators.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Analysis & Reporting</h4>
-                  <p>Detailed analysis and reporting of business performance metrics.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Optimization Services</h4>
-                  <p>Strategic recommendations for improving business performance.</p>
-              </div>
-          `,
-    },
-    protection: {
-      title: "Business Protection",
-      icon: "protection-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Protect your business assets and data with our comprehensive security solutions.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Advanced data security measures</li>
-                  <li>Asset protection strategies</li>
-                  <li>Risk management solutions</li>
-                  <li>Compliance monitoring</li>
-                  <li>Regular security audits</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Data Security</h4>
-                  <p>Comprehensive data protection and security measures.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Asset Protection</h4>
-                  <p>Strategic protection of business assets and resources.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Risk Management</h4>
-                  <p>Proactive risk assessment and management solutions.</p>
-              </div>
-          `,
-    },
-    nearby: {
-      title: "Affordable Nearby Solution",
-      icon: "nearby-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Access cost-effective local business support services tailored to your needs.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Local market expertise</li>
-                  <li>Cost-effective solutions</li>
-                  <li>Community networking</li>
-                  <li>Local support services</li>
-                  <li>Regional business insights</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Local Support</h4>
-                  <p>On-ground support and assistance for your business needs.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Community Integration</h4>
-                  <p>Help integrate your business into the local community.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Resource Access</h4>
-                  <p>Access to local resources and business networks.</p>
-              </div>
-          `,
-    },
-    it: {
-      title: "Modern IT Infrastructure",
-      icon: "it-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Build and maintain a modern IT infrastructure that supports your business growth.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>Cloud infrastructure setup</li>
-                  <li>System integration</li>
-                  <li>IT security implementation</li>
-                  <li>Digital transformation</li>
-                  <li>Technology optimization</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Infrastructure Setup</h4>
-                  <p>Complete IT infrastructure design and implementation.</p>
-              </div>
-              <div class="service-item">
-                  <h4>System Integration</h4>
-                  <p>Seamless integration of various IT systems and tools.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Tech Support</h4>
-                  <p>Ongoing technical support and maintenance services.</p>
-              </div>
-          `,
-    },
-    marketing: {
-      title: "Digital Marketing",
-      icon: "marketing-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Enhance your online presence and reach your target audience effectively.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>SEO optimization</li>
-                  <li>Social media management</li>
-                  <li>Content marketing</li>
-                  <li>Online advertising</li>
-                  <li>Analytics tracking</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Digital Strategy</h4>
-                  <p>Comprehensive digital marketing strategy development.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Content Creation</h4>
-                  <p>Professional content creation and management services.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Campaign Management</h4>
-                  <p>End-to-end digital campaign planning and execution.</p>
-              </div>
-          `,
-    },
-    support: {
-      title: "Expert Support",
-      icon: "support-icon",
-      overview: `
-              <h3>Overview</h3>
-              <p>Get reliable professional support and guidance for your business operations.</p>
-          `,
-      keyFeatures: `
-              <h3>Key Features</h3>
-              <ul>
-                  <li>24/7 technical support</li>
-                  <li>Professional consulting</li>
-                  <li>Problem resolution</li>
-                  <li>Training services</li>
-                  <li>Ongoing guidance</li>
-              </ul>
-          `,
-      services: `
-              <h3>Our Services</h3>
-              <div class="service-item">
-                  <h4>Technical Support</h4>
-                  <p>Round-the-clock technical assistance and support.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Business Consulting</h4>
-                  <p>Expert business advice and consulting services.</p>
-              </div>
-              <div class="service-item">
-                  <h4>Training Programs</h4>
-                  <p>Comprehensive training and development programs.</p>
-              </div>
-          `,
-    },
-  };
-
-  // Add hover effect for cards
   cards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       card.style.transform = "translateY(-8px)";
@@ -284,51 +914,6 @@ document.addEventListener("DOMContentLoaded", () => {
       card.style.transform = "translateY(0)";
     });
   });
-
-  // Modal functionality with tabs
-  function openModal(service) {
-    const serviceData = serviceDetails[service];
-    modalTitle.textContent = serviceData.title;
-    modalIcon.className = `icon ${serviceData.icon}`;
-
-    // Create tabs and content
-    modalBody.innerHTML = `
-          <div class="tabs">
-              <button class="tab active" data-tab="overview">Overview</button>
-              <button class="tab" data-tab="keyFeatures">Key Features</button>
-              <button class="tab" data-tab="services">Services</button>
-          </div>
-          <div class="tab-content active" id="overview">
-              ${serviceData.overview}
-          </div>
-          <div class="tab-content" id="keyFeatures">
-              ${serviceData.keyFeatures}
-          </div>
-          <div class="tab-content" id="services">
-              ${serviceData.services}
-          </div>
-      `;
-
-    // Add tab functionality
-    const tabs = modalBody.querySelectorAll(".tab");
-    const tabContents = modalBody.querySelectorAll(".tab-content");
-
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        // Remove active class from all tabs and contents
-        tabs.forEach((t) => t.classList.remove("active"));
-        tabContents.forEach((c) => c.classList.remove("active"));
-
-        // Add active class to clicked tab and corresponding content
-        tab.classList.add("active");
-        const tabId = tab.dataset.tab;
-        document.getElementById(tabId).classList.add("active");
-      });
-    });
-
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
 
   function closeModalHandler() {
     modal.classList.remove("active");
@@ -351,14 +936,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Close modal with Escape key
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modal.classList.contains("active")) {
       closeModalHandler();
     }
   });
 
-  // Add animation classes to cards on scroll
   const observerOptions = {
     threshold: 0.1,
   };
