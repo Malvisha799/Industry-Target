@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/favicon.png" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/favicon.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <link rel="shortcut icon" href="/images/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png" />
@@ -30,36 +35,374 @@
         </div>
       </nav>
     </div>
-    <div class="container">
-      <h1>Our Industry TargetPath To Help You</h1>
-      <div class="industry-grid"></div>
-    </div>
-    <div class="overlay"></div>
-    <div class="details-box">
-      <button class="close-btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-      <div class="details-header">
-        <div class="icon-wrapper details-icon"></div>
-        <h2 class="details-title"></h2>
+    <section class="industry-section">
+      <div class="container">
+        <h1 class="title">Our Industry TargetPath To Help You</h1>
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <div class="card" data-service="business-setup">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon business-setup-icon"></div>
+              </div>
+              <h3>Business Setup</h3>
+              <p>Streamline your business registration process</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card" data-service="business-growth">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon business-growth-icon"></div>
+              </div>
+              <h3>Business Growth</h3>
+              <p>Scale your business operations effectively</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card" data-service="performance">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon performance-icon"></div>
+              </div>
+              <h3>Performance Analysis</h3>
+              <p>Track and optimize business metrics</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card" data-service="protection">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon protection-icon"></div>
+              </div>
+              <h3>Business Protection</h3>
+              <p>Secure your business assets and data</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="card" data-service="nearby">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon nearby-icon"></div>
+              </div>
+              <h3>Affordable Nearby Solution</h3>
+              <p>Local business support services</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="card" data-service="it">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon it-icon"></div>
+              </div>
+              <h3>Modern IT Infrastructure</h3>
+              <p>Advanced technology solutions</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="card" data-service="marketing">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon marketing-icon"></div>
+              </div>
+              <h3>Digital Marketing</h3>
+              <p>Boost your online presence</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="card" data-service="support">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <div class="icon support-icon"></div>
+              </div>
+              <h3>Expert Support</h3>
+              <p>Professional guidance and assistance</p>
+              <button class="view-details">View Details</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="details-content">
-        <div class="details-body"></div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="serviceModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+          <div class="icon-wrapper">
+            <div class="icon" id="modalIcon"></div>
+          </div>
+          <h2 id="modalTitle"></h2>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
       </div>
     </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="containerLast">
+        <!-- Footer Navigation Section -->
+        <div class="footer-nav">
+          <div class="nav-section">
+            <h3>Products</h3>
+            <ul>
+              <li><a href="#">IDEs</a></li>
+              <li><a href="#">.NET & Visual Studio</a></li>
+              <li><a href="#">Team Tools</a></li>
+              <li><a href="#">Plugins</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Languages</a></li>
+              <li><a href="#">All products</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3>Solutions</h3>
+            <ul>
+              <li><a href="#">C++ Tools</a></li>
+              <li><a href="#">Data Tools</a></li>
+              <li><a href="#">DevOps</a></li>
+              <li><a href="#">Education</a></li>
+              <li><a href="#">Game Development</a></li>
+              <li><a href="#">Software Development</a></li>
+              <li><a href="#">Tools For Business</a></li>
+              <li><a href="#">Quality Assurance</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-logo">
+            <img src="/images/Final Word-25.png" alt="India Certify Logo" />
+          </div>
+
+          <div class="nav-section">
+            <h3>Initiatives</h3>
+            <ul>
+              <li><a href="#">Kotlin</a></li>
+              <li><a href="#">JetBrains Mono</a></li>
+              <li><a href="#">JetBrains Research</a></li>
+              <li><a href="#">Open Source Projects</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3>Community</h3>
+            <ul>
+              <li><a href="#">Academic Licensing</a></li>
+              <li><a href="#">Open Source Support</a></li>
+              <li><a href="#">User Groups</a></li>
+              <li><a href="#">Events Partnership</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3>Resources</h3>
+            <ul>
+              <li><a href="#">Sales Support</a></li>
+              <li><a href="#">Product Support</a></li>
+              <li><a href="#">Licensing FAQ</a></li>
+              <li><a href="#">Documentation</a></li>
+              <li><a href="#">Early Access</a></li>
+              <li><a href="#">Events and Webinars</a></li>
+              <li><a href="#">Newsletters</a></li>
+              <li><a href="#">Industry Reports</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contacts</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Customers & Awards</a></li>
+              <li><a href="#">Brand Assets</a></li>
+              <li><a href="#">Partners and Resellers</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Medium">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" x2="12" y1="1" y2="3" />
+                <line x1="12" x2="12" y1="21" y2="23" />
+                <line x1="4.22" x2="5.64" y1="4.22" y2="5.64" />
+                <line x1="18.36" x2="19.78" y1="18.36" y2="19.78" />
+                <line x1="1" x2="3" y1="12" y2="12" />
+                <line x1="21" x2="23" y1="12" y2="12" />
+                <line x1="4.22" x2="5.64" y1="19.78" y2="18.36" />
+                <line x1="18.36" x2="19.78" y1="5.64" y2="4.22" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="RSS">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M4 11a9 9 0 0 1 9 9" />
+                <path d="M4 4a16 16 0 0 1 16 16" />
+                <circle cx="5" cy="19" r="1" />
+              </svg>
+            </a>
+          </div>
+          <div class="language-selector">
+            <div class="selector-button" id="countrySelector">
+              United States
+            </div>
+            <div class="selector-button" id="languageSelector">English</div>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+          <p class="copyright">
+            © <span id="current-year"></span> Your Company Name. All rights
+            reserved.
+          </p>
+          <p class="legal">
+            This website is designed to provide general information. The content
+            is not intended to substitute professional advice.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Second Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>All Rights Reserved India Certify © 2024</p>
+        <div class="payment-info">
+          <span>Secured Payments</span>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UPI-Logo-vector.svg/1280px-UPI-Logo-vector.svg.png"
+            alt="UPI"
+          />
+        </div>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
